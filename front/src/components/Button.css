@@ -1,0 +1,49 @@
+/* BOTÃO BASE */
+.btn {
+  height: 50px;
+  padding: 0 26px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+/* ===== PRIMARY (roxo gradiente) ===== */
+.btn.primary {
+  background: linear-gradient(90deg, #7b2cff, #c000ff);
+  border: none;
+  color: white;
+}
+
+.btn.primary:hover {
+  opacity: 0.85;
+}
+
+/* ===== OUTLINE ===== */
+.btn.outline {
+  background: transparent;
+  border: 2px solid #b873ff;
+  color: #b873ff;
+}
+
+.btn.outline:hover {
+  background: rgba(183, 115, 255, 0.1);
+}
+
+/* ===== GHOST (opcional) ===== */
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.07);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+}

@@ -1,0 +1,37 @@
+/* ===== RESET GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* remove scroll lateral */
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== WALLPAPER DINÂMICO POR ROTA ===== */
+body[data-wallpaper="login"],
+body[data-wallpaper="cadastro"] {
+  background-image: url("/src/assets/img/Wallpaper-PerdidosNoEspaco.svg");
+}
+
+body[data-wallpaper="default"] {
+  background-image: url("/src/assets/img/WallpaperDefault.svg");
+}
+
+body[data-wallpaper] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* igual Netflix, fundo fixo */
+}
+
+/* ===== CONTAINER BASE DAS PÁGINAS ===== */
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 60px;
+}

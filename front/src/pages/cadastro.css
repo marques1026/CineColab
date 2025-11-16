@@ -1,0 +1,128 @@
+/* ===== RESET BÁSICO ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== CONTAINER ===== */
+.cadastro-container {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: var(--bg);
+  background-size: cover; /* PREENCHE a tela toda */
+  background-repeat: no-repeat;
+  background-position: center; /* Foca no centro, igual ao Figma */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  font-family: "Inter", sans-serif;
+
+  /* Remove scroll horizontal */
+  overflow-x: hidden;
+}
+
+
+
+
+/* ===== CARD ===== */
+.cadastro-card {
+  width: 480px;
+  background: rgba(20, 20, 30, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 20px;
+  padding: 45px 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  box-shadow: 0px 0px 60px rgba(0,0,0,0.55);
+}
+
+/* ===== TÍTULO ===== */
+.cadastro-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #ffffff, #c38bff);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  margin-bottom: 10px;
+}
+
+/* ===== FORM ===== */
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ===== CAMPO ===== */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  color: #ffffffdd;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ===== INPUT ===== */
+.input-group input {
+  height: 50px;
+  padding: 0 15px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 15px;
+
+  transition: 0.2s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border: 1px solid #9d63ff;
+  background: rgba(255,255,255,0.14);
+}
+
+.input-group input::placeholder {
+  color: #ffffff80;
+}
+
+/* ===== BOTÃO ===== */
+.btn-cadastrar {
+  height: 52px;
+  margin-top: 8px;
+
+  background: linear-gradient(90deg, #5f00ff, #b400ff);
+  border: none;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn-cadastrar:hover {
+  opacity: 0.85;
+}
