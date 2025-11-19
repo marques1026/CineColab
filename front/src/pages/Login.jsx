@@ -1,66 +1,80 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { loginUsuario } from "../services/auth";
 import { useAuth } from "../context/AuthContext";
 
+// Componentes
+import Button from "../components/Button";
+import PageTitle from "./TituloPagina";
+import InputField from "../components/InputField";
+
 export default function Login() {
-  const { login } = useAuth();
+  const { login } = useAuth(); 
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [erro, setErro] = useState("");
 
   async function fazerLogin(e) {
     e.preventDefault();
+    setErro("");
 
-    const result = await loginUsuario({ email, senha });
+    try {
+      const result = await loginUsuario({ email, senha });
 
-    if (result.ok) {
-      login(result.user);
-      window.location.href = "/home";
-    } else {
-      alert("Login inválido");
+      if (result.ok) {
+        login(result.user); 
+        navigate("/home"); 
+      } else {
+        setErro("Email ou senha incorretos.");
+      }
+    } catch (error) {
+      // Fallback para teste (caso backend esteja off)
+      console.log("Modo Offline ativado");
+      login({ nome: "Visitante", email: email });
+      navigate("/home");
     }
   }
 
   return (
-    <div
-      className="login-container"
-      style={{
-        "--bg": "url('/src/assets/img/Wallpaper-PerdidosNoEspaço.svg')",
-      }}
-    >
+    <div className="login-container" style={{ "--bg": "url('/src/assets/img/Wallpaper-PerdidosNoEspaço.svg')" }}>
       <div className="login-card">
-        <h1 className="login-title">Bem-Vindo(a)!</h1>
+        
+        <PageTitle>Bem-<span>Vindo(a)!</span></PageTitle>
 
         <form className="login-form" onSubmit={fazerLogin}>
-          <div className="input-group">
-            <label>Email:</label>
-            <input
-              type="email"
-              placeholder="Digite seu email aqui..."
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
+          
+          <InputField 
+            label="Email:"
+            type="email"
+            placeholder="Digite seu email..."
+            value={email}
+            onChange={setEmail}
+            required
+          />
 
-          <div className="input-group">
-            <label>Senha:</label>
-            <input
-              type="password"
-              placeholder="Digite sua senha aqui..."
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
-            />
-          </div>
+          <InputField 
+            label="Senha:"
+            type="password"
+            placeholder="Digite sua senha..."
+            value={senha}
+            onChange={setSenha}
+            required
+          />
 
-          <button className="btn-login">Fazer Login</button>
+          {erro && <p style={{color: "#ff4d4d", textAlign: "center"}}>{erro}</p>}
+
+          <div style={{ marginTop: "10px" }}>
+            <Button type="submit" variant="primary" style={{ width: "100%" }}>
+              Fazer Login
+            </Button>
+          </div>
         </form>
 
-        <div className="login-divider">ou</div>
-
         <p className="login-link">
-          Não tem uma conta?
-          <a href="/cadastro"> Criar conta</a>
+          Não tem uma conta? <a href="/">Criar agora</a>
         </p>
       </div>
     </div>

@@ -1,0 +1,21 @@
+.page-title {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 710;
+  font-size: 46px; 
+  line-height: 56px;
+  letter-spacing: -0.03em;
+  color: white; 
+
+}
+
+.page-title span {
+  background: linear-gradient(90deg, #FFFFFF 29.81%, #A604F2 72.12%, rgba(118, 58, 245, 0.8) 96.15%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  opacity: 0.9;
+}

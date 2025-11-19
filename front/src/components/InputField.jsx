@@ -4,13 +4,14 @@ import "./InputField.css";
 export default function InputField({
   label,
   value,
-  onChange,
+  onChange, // Recebe a função setEstado
   placeholder,
-  textarea = false,
-  type = "text"
+  type = "text",
+  required = false,
+  textarea = false
 }) {
   return (
-    <div className="form-group">
+    <div className="input-group">
       <label>{label}</label>
 
       {textarea ? (
@@ -18,6 +19,7 @@ export default function InputField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
+          required={required}
         />
       ) : (
         <input
@@ -25,6 +27,7 @@ export default function InputField({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
+          required={required}
         />
       )}
     </div>

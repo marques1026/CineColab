@@ -1,49 +1,43 @@
-/* BOTÃO BASE */
+
 .btn {
-  height: 50px;
-  padding: 0 26px;
-  border-radius: 12px;
-  font-size: 15px;
+  height: 52px; 
+  padding: 0 32px; 
+  border-radius: 12px; 
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s ease;
+  /* Para alinhar ícones (play, +) e texto */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-family: "Inter", sans-serif;
-  color: white;
+  gap: 10px; 
 }
 
-/* ===== PRIMARY (roxo gradiente) ===== */
+.btn:active {
+  transform: scale(0.96); 
+}
+
+
 .btn.primary {
   background: linear-gradient(90deg, #7b2cff, #c000ff);
-  border: none;
   color: white;
+  box-shadow: 0 4px 15px rgba(123, 44, 255, 0.4); 
 }
 
 .btn.primary:hover {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-/* ===== OUTLINE ===== */
+/* ===== VARIANTE 2 - transparente ===== */
 .btn.outline {
   background: transparent;
-  border: 2px solid #b873ff;
-  color: #b873ff;
-}
-
-.btn.outline:hover {
-  background: rgba(183, 115, 255, 0.1);
-}
-
-/* ===== GHOST (opcional) ===== */
-.btn.ghost {
-  background: rgba(255, 255, 255, 0.07);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3); 
   color: white;
 }
 
-.btn.ghost:hover {
-  background: rgba(255, 255, 255, 0.14);
+.btn.outline:hover {
+  background: rgba(255, 255, 255, 0.1); 
+  border-color: white;
 }

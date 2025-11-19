@@ -1,4 +1,4 @@
-/* ===== RESET BÁSICO ===== */
+/* ===== RESET ===== */
 body, html {
   margin: 0;
   padding: 0;
@@ -10,144 +10,56 @@ body, html {
 .login-container {
   width: 100vw;
   height: 100vh;
-
   background-image: var(--bg);
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
-
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
 
-/* ===== CARD ===== */
 .login-card {
-  width: 480px;
-  background: rgba(20, 20, 30, 0.45);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  width: 100%;
+  max-width: 500px; /* Um pouquinho menor que o cadastro */
 
-  border-radius: 20px;
+  background: rgba(32, 32, 39, 0.75); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(5px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 15px; 
   padding: 45px 50px;
 
   display: flex;
   flex-direction: column;
-  gap: 30px;
-
-  box-shadow: 0px 0px 60px rgba(0,0,0,0.55);
+  gap: 25px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.6); 
 }
 
-/* ===== TÍTULO ===== */
-.login-title {
-  text-align: center;
-  font-size: 40px;
-  font-weight: 700;
-
-  background: linear-gradient(90deg, #ffffff, #c38bff);
-  -webkit-background-clip: text;
-  color: transparent;
-
-  margin-bottom: 10px;
-}
-
-/* ===== FORM ===== */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 10px;
 }
 
-/* ===== CAMPO ===== */
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.input-group label {
-  color: #ffffffdd;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-/* ===== INPUT ===== */
-.input-group input {
-  height: 50px;
-  padding: 0 15px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.18);
-
-  background: rgba(255,255,255,0.08);
-  color: white;
-  font-size: 15px;
-
-  transition: 0.2s ease;
-}
-
-.input-group input:focus {
-  outline: none;
-  border: 1px solid #9d63ff;
-  background: rgba(255,255,255,0.14);
-}
-
-.input-group input::placeholder {
-  color: #ffffff80;
-}
-
-/* ===== BOTÃO ===== */
-.btn-login {
-  height: 52px;
-  margin-top: 8px;
-
-  background: linear-gradient(90deg, #5f00ff, #b400ff);
-  border: none;
-  border-radius: 12px;
-
-  color: white;
-  font-size: 17px;
-  font-weight: 600;
-
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.btn-login:hover {
-  opacity: 0.85;
-}
-
-/* ===== DIVISOR ===== */
-.login-divider {
-  text-align: center;
-  color: #ffffffbb;
-  margin-top: -10px;
-}
-
-/* ===== LINK ===== */
 .login-link {
   text-align: center;
-  color: #ffffffc9;
-  font-size: 15px;
+  font-size: 14px;
+  color: #aaaaaa;
+  margin-top: 10px;
 }
 
 .login-link a {
-  color: #c38bff;
-  font-weight: 600;
+  color: #c084fc;
   text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
 .login-link a:hover {
+  color: #d8b4fe;
   text-decoration: underline;
-}
-
-.login-error {
-  color: #ff4d4d;
-  margin-top: 8px;
-  font-size: 14px;
-  text-align: center;
 }
