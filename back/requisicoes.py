@@ -1,59 +1,60 @@
-from database import get_connection
-from filmes import adicionar_filme, editar_filme
-from historico import registrar_edicao
 import json
+from database import get_connection
 
 def criar_requisicao(id_usuario, tipo, id_filme, dados):
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute("""
-        INSERT INTO requisicoes (id_usuario, tipo, id_filme, dados)
-        VALUES (%s, %s, %s, %s)
-    """, (id_usuario, tipo, id_filme, json.dumps(dados)))
+    # Converte o dicionário de dados do filme para texto JSON para salvar no banco
+    dados_json = json.dumps(dados)
 
-    conn.commit()
-    conn.close()
-
+    try:
+        cursor.execute(
+            """
+            INSERT INTO requisicoes (id_usuario, tipo, id_filme, dados)
+            VALUES (%s, %s, %s, %s)
+            """,
+            (id_usuario, tipo, id_filme, dados_json)
+        )
+        conn.commit()
+    except Exception as e:
+        conn.rollback()
+        raise e
+    finally:
+        conn.close()
 
 def listar_requisicoes():
     conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM requisicoes")
-    req = cursor.fetchall()
-
+    cursor = conn.cursor(dictionary=True)
+    
+    # Traz as requisições e o nome de quem pediu
+    query = """
+        SELECT r.*, u.nome as nome_usuario 
+        FROM requisicoes r
+        JOIN usuarios u ON r.id_usuario = u.id_usuario
+        WHERE r.status = 'pendente'
+        ORDER BY r.data_criacao DESC
+    """
+    cursor.execute(query)
+    requisicoes = cursor.fetchall()
+    
+    # Converte a string JSON de volta para objeto Python
+    for req in requisicoes:
+        if req["dados"]:
+            req["dados"] = json.loads(req["dados"])
+            
     conn.close()
-    return req
+    return requisicoes
 
-
-def responder_requisicao(id_req, status):
+def responder_requisicao(id_requisicao, novo_status):
     conn = get_connection()
     cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM requisicoes WHERE id_requisicao=%s", (id_req,))
-    req = cursor.fetchone()
-
-    if not req:
-        return
-
-    cursor.execute("UPDATE requisicoes SET status=%s WHERE id_requisicao=%s", (status, id_req))
-
-    # se aprovado → executar ação
-    if status == "aprovado":
-        dados = json.loads(req["dados"])
-
-        if req["tipo"] == "adicionar":
-            adicionar_filme(dados)
-
-        elif req["tipo"] == "editar":
-            editar_filme(req["id_filme"], dados)
-
-            registrar_edicao(
-                req["id_filme"],
-                req["id_usuario"],
-                json.dumps(dados)
-            )
-
-    conn.commit()
-    conn.close()
+    
+    try:
+        cursor.execute(
+            "UPDATE requisicoes SET status = %s WHERE id_requisicao = %s",
+            (novo_status, id_requisicao)
+        )
+        conn.commit()
+    finally:
+        conn.close()

@@ -24,11 +24,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/edicaofilmes" element={<EdicaoFilme />} />
         <Route path="/cadastrofilmes" element={<CadastrarFilme />} />
-        <Route path="/home" element={<Home />} /> {/* bosta liquida  */}
+        <Route path="/home" element={<Home />} /> {/* arrumar praticamente tudo  */}
         <Route path="/perfil" element={<Perfil />} /> 
-        <Route path="/detalhefilmes" element={<MovieDetails />} /> {/* bosta liquida  */}
+        <Route path="/detalhefilmes" element={<MovieDetails />} /> {/* arrumar praticamente tudo  */}
         <Route path="/requisicoesadm" element={<RequisicoesPage />} /> {/* arrumar posicionamento  */}
-        <Route path="/minhalista" element={<MinhaLista />} /> {/* bosta liquida  */}
+        <Route path="/minhalista" element={<MinhaLista />} /> {/* arrumar praticamente tudo  */}
         {/* pagina de pesquisar filmes  */}
         {/* filmes ja adicionados  */}
         {/* requisição de filme usuario  */}

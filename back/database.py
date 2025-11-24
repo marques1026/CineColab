@@ -1,10 +1,10 @@
-import pymysql
+import mysql.connector
 
 def get_connection():
-    return pymysql.connect(
+    return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="root",
+        password="senai",
         database="cinecolab",
-        cursorclass=pymysql.cursors.DictCursor
+        autocommit=True
     )

@@ -1,10 +1,8 @@
 import json
 
-def json_response(handler, status, data):
+def json_response(handler, status, body):
     handler.send_response(status)
-    handler.send_header("Content-type", "application/json")
+    handler.send_header("Content-Type", "application/json")
     handler.send_header("Access-Control-Allow-Origin", "*")
-    handler.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-    handler.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
     handler.end_headers()
-    handler.wfile.write(json.dumps(data).encode())
+    handler.wfile.write(json.dumps(body).encode())

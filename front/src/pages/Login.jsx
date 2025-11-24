@@ -17,26 +17,19 @@ export default function Login() {
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  async function fazerLogin(e) {
-    e.preventDefault();
-    setErro("");
+ async function fazerLogin(e) {
+  e.preventDefault();
 
-    try {
-      const result = await loginUsuario({ email, senha });
+  const result = await loginUsuario({ email, senha });
 
-      if (result.ok) {
-        login(result.user); 
-        navigate("/home"); 
-      } else {
-        setErro("Email ou senha incorretos.");
-      }
-    } catch (error) {
-      // Fallback para teste (caso backend esteja off)
-      console.log("Modo Offline ativado");
-      login({ nome: "Visitante", email: email });
-      navigate("/home");
-    }
+  if (result.token) {
+    login(result.user);
+    navigate("/home");
+  } else {
+    setErro("Email ou senha incorretos.");
   }
+}
+
 
   return (
     <div className="login-container" style={{ "--bg": "url('/src/assets/img/Wallpaper-PerdidosNoEspaço.svg')" }}>

@@ -1,4 +1,5 @@
-import { createContext, useState, useContext, useEffect } from "react";
+// src/context/AuthContext.jsx
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { getUsuario, logout as doLogout } from "../services/auth";
 
 const AuthContext = createContext();
@@ -7,11 +8,8 @@ export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
-    // Ao carregar a página, verifica se já existe alguém logado
-    const usuarioSalvo = getUsuario();
-    if (usuarioSalvo) {
-      setUsuario(usuarioSalvo);
-    }
+    const u = getUsuario();
+    if (u) setUsuario(u);
   }, []);
 
   function login(dadosUsuario) {

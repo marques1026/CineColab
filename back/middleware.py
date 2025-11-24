@@ -1,12 +1,12 @@
 import jwt
 from config import SECRET_KEY
 
-def gerar_token(id_usuario):
-    return jwt.encode({"id_usuario": id_usuario}, SECRET_KEY, algorithm="HS256")
+def gerar_token(user_id):
+    return jwt.encode({"id": user_id}, SECRET_KEY, algorithm="HS256")
 
 def validar_token(token):
     try:
-        data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-        return data["id_usuario"]
+        dados = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        return dados["id"]
     except:
         return None

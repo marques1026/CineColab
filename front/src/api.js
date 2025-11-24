@@ -1,27 +1,53 @@
-// A porta deve ser a mesma do server.py (8001)
-const API_BASE_URL = 'http://localhost:8001';
+// src/api.js
+const API_BASE_URL = ""; // usa proxy do vite; em produção coloque "http://localhost:8001" ou URL real
 
-export async function registerUser(userData) {
-    try {
-        // A rota deve incluir o /api/ que colocamos no server.py
-        const response = await fetch(`${API_BASE_URL}/api/cadastro`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData)
-        });
+// helper
+async function doFetch(path, options = {}) {
+  const resp = await fetch(`/api${path}`, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(options.headers || {}),
+    },
+  });
+  const data = await resp.json().catch(() => ({}));
+  return { ok: resp.ok, status: resp.status, data };
+}
 
-        const data = await response.json();
+// Cadastro
+export async function cadastrarUsuarioAPI(userData) {
+  return doFetch("/cadastro", {
+    method: "POST",
+    body: JSON.stringify(userData),
+  });
+}
 
-        if (!response.ok) {
-            // Pega a mensagem de erro enviada pelo Python (ex: "Este email já está cadastrado")
-            throw new Error(data.error || 'Erro ao cadastrar');
-        }
+// Login usuário (rota /api/login)
+export async function loginUsuarioAPI(credentials) {
+  return doFetch("/login", {
+    method: "POST",
+    body: JSON.stringify(credentials),
+  });
+}
 
-        return data;
-    } catch (error) {
-        console.error('Erro na requisição:', error);
-        throw error;
-    }
+// Login admin
+export async function loginAdminAPI(credentials) {
+  return doFetch("/login_admin", {
+    method: "POST",
+    body: JSON.stringify(credentials),
+  });
+}
+
+// Filmes (listar)
+export async function listarFilmesAPI() {
+  return doFetch("/filmes", { method: "GET" });
+}
+
+// Adicionar filme (admin)
+export async function adicionarFilmeAPI(dados, token) {
+  return doFetch("/filmes/adicionar", {
+    method: "POST",
+    body: JSON.stringify(dados),
+    headers: { Authorization: `Bearer ${token || ""}` },
+  });
 }
