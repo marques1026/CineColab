@@ -3,7 +3,6 @@ import "./home.css";
 
 import CardFilmes from "../components/CardFilmes";
 
-// Importando imagens reais que você já tem
 import LogoAvatar from "../assets/img/LogoAvatar.svg";
 import AvatarEscuro from "../assets/img/AvatarEscuro.svg";
 
@@ -26,9 +25,7 @@ export default function Home({ filmes = [] }) {
   return (
     <div className="home-container">
 
-      {/* ====================================== */}
-      {/* ============ HERO AVATAR ============= */}
-      {/* ====================================== */}
+
       <div
         className="hero-banner"
         style={{ backgroundImage: `url(${AvatarEscuro})` }}
@@ -55,9 +52,7 @@ export default function Home({ filmes = [] }) {
         </div>
       </div>
 
-      {/* ====================================== */}
-      {/* ============== CONTEÚDO ============== */}
-      {/* ====================================== */}
+
       <div className="home-content">
 
         {/* ===== FILMES MAIS ASSISTIDOS ===== */}

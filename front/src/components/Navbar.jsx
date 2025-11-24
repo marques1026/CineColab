@@ -15,14 +15,12 @@ export default function Navbar() {
   return (
     <nav className="navbar">
 
-      {/* ===== BLOCO 1: ESQUERDA (SÓ O LOGO) ===== */}
       <div className="navbar-left">
         <a href="/" className="navbar-logo">
           Cine<span>Colab</span>
         </a>
       </div>
 
-      {/* ===== BLOCO 2: CENTRO (Links + Busca) ===== */}
       <div className="navbar-center">
         
         {/* Links */}
@@ -38,7 +36,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ===== BLOCO 3: DIREITA (SÓ O PERFIL) ===== */}
       <div className="navbar-right">
         <div className="navbar-user">
           <div className="user-icon-wrapper"></div>

@@ -16,7 +16,7 @@
 }
 
 .input-group input,
-.input-group textarea { /* Adicionei textarea para funcionar na Sinopse */
+.input-group textarea { 
   width: 100%; 
   height: 52px;
   padding: 0 18px;
@@ -30,7 +30,6 @@
   transition: all 0.3s ease;
 }
 
-/* Ajuste específico para Textarea (Sinopse) */
 .input-group textarea {
   height: 120px;
   padding-top: 14px;
@@ -42,9 +41,8 @@
   color: rgba(255, 255, 255, 0.35);
 }
 
-/* Foco (Opcional, mas recomendado para usabilidade) */
 .input-group input:focus,
 .input-group textarea:focus {
   outline: none;
-  border-color: #c084fc; /* Roxo do link */
+  border-color: #c084fc; 
 }

@@ -1,4 +1,4 @@
-/* ===== RESET BÁSICO ===== */
+/*  RESET */
 body, html {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@ body, html {
   height: 100%;
 }
 
-/* ===== CONTAINER ===== */
+/* CONTAINER */
 .cadastro-container {
   width: 100vw;
   height: 100vh;
@@ -22,7 +22,7 @@ body, html {
   overflow-x: hidden;
 }
 
-/* ===== CARD (Copiado do seu código) ===== */
+/* CARD  */
 .cadastro-card {
   width: 100%;
   max-width: 500px; 
@@ -38,14 +38,12 @@ body, html {
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.6); 
 }
 
-/* ===== FORM ===== */
 .cadastro-form {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Espaçamento geral */
+  gap: 10px; 
 }
 
-/* ===== LINK DE LOGIN ===== */
 .cadastro-link {
   text-align: center;
   font-size: 14px;

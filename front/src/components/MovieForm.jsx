@@ -4,7 +4,7 @@ import DuoInput from "./DuoInput";
 import Button from "./Button";
 
 export default function MovieForm({
-  modo = "edit",         // "edit" ou "create"
+  modo = "edit",    
   titulo, setTitulo,
   ano, setAno,
   duracao, setDuracao,

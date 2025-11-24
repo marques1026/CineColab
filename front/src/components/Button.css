@@ -8,7 +8,6 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  /* Para alinhar ícones (play, +) e texto */
   display: flex;
   align-items: center;
   justify-content: center;

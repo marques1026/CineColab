@@ -4,7 +4,7 @@ import "./InputField.css";
 export default function InputField({
   label,
   value,
-  onChange, // Recebe a função setEstado
+  onChange, 
   placeholder,
   type = "text",
   required = false,

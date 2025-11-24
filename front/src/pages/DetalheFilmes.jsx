@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import Button from "../components/Button";
 
 
-// IMPORTA OS ARQUIVOS DO AVATAR
 import AvatarPoster from "../assets/img/Avatar.svg"
 import LogoAvatar from "../assets/img/LogoAvatar.svg";
 
@@ -14,7 +13,6 @@ export default function MovieDetails() {
     <div className="movie-details-page">
       <Navbar />
 
-      {/* LOGO DO FILME CENTRALIZADA */}
       <div className="movie-logo-container">
         <img src={LogoAvatar} alt="Avatar Logo" className="movie-logo" />
       </div>

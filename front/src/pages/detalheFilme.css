@@ -134,19 +134,18 @@
   gap: 20px;
 }
 
-/* LOGO CENTRALIZADA SOBRE O POSTER */
 .movie-logo-container {
   width: 100%;
   display: flex;
   justify-content: end;
   margin-top: 40px;
-  margin-bottom: -120px; /* sobe a logo em cima do banner */
+  margin-bottom: -120px; 
   position: relative;
   z-index: 3;
 }
 
 .movie-logo {
-  width: 360px; /* ajuste conforme o tamanho da sua logo */
+  width: 360px; 
   user-select: none;
   filter: drop-shadow(0px 0px 12px rgba(0,0,0,0.6));
 }

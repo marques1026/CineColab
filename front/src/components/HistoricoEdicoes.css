@@ -5,13 +5,11 @@
 
   display: flex;
   flex-direction: column;
-  gap: 0px; /* Agora tudo juntinho */
+  gap: 0px; 
 
   font-family: "Inter", sans-serif;
   color: white;
 }
-
-/* ===== TÍTULO JÁ ESTÁ NO CARD ===== */
 
 
 /* ===== CABEÇALHO ===== */
