@@ -1,9 +1,8 @@
+DROP DATABASE IF EXISTS cinecolab;
+CREATE DATABASE cinecolab;
+USE cinecolab; 
 
-CREATE DATABASE IF NOT EXISTS filmes_db;
-USE filmes_db; 
-SELECT * FROM Filme;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'senai';
-
 FLUSH PRIVILEGES;
 
 
@@ -111,6 +110,38 @@ CREATE TABLE Filme_pais (
     id_pais INT NOT NULL,
     FOREIGN KEY (id_filme) REFERENCES Filme(id_filme),
     FOREIGN KEY (id_pais) REFERENCES pais(id_pais)
+);
+
+-- 1. Cria a tabela de Usuários (Necessária para Login/Cadastro)
+CREATE TABLE IF NOT EXISTS usuarios (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
+);
+
+-- 2. Cria a tabela de Requisições 
+CREATE TABLE IF NOT EXISTS requisicoes (
+    id_requisicao INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    id_filme INT DEFAULT NULL, -- Pode ser NULL se for um filme novo
+    tipo ENUM('adicao', 'edicao') NOT NULL,
+    status ENUM('pendente', 'aprovado', 'negado') DEFAULT 'pendente',
+    dados JSON NOT NULL, -- Guarda o titulo, sinopse, etc.
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+
+CREATE TABLE IF NOT EXISTS historico_edicoes (
+    id_historico INT PRIMARY KEY AUTO_INCREMENT,
+    id_filme INT NOT NULL,
+    id_usuario INT NOT NULL,
+    alteracoes JSON, -- Ou TEXT se sua versão do MySQL for antiga
+    data_edicao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_filme) REFERENCES Filme(id_filme),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
 
