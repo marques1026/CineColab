@@ -17,7 +17,6 @@ export default function RequisicoesPage() {
 
     return (
         <>
-            {/* NAVBAR NO TOPO */}
             <Navbar />
 
             {/* CONTEÚDO DA PÁGINA */}
@@ -79,7 +78,6 @@ export default function RequisicoesPage() {
                 </div>
             </div>
 
-            {/* FOOTER NO FINAL */}
             <Footer />
         </>
     );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./cadastroFilme.css";
 
 import Navbar from "../components/Navbar";
+import PageTitle from "../components/TituloPagina";
 import Footer from "../components/Footer";
 import MovieForm from "../components/MovieForm";
 

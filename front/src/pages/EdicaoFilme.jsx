@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./edicaoFilme.css";
 
 import Navbar from "../components/Navbar";
+import PageTitle from "../components/TituloPagina";
 import Footer from "../components/Footer";
 import HistoricoEdicoes from "../components/HistoricoEdicoes";
 import MovieForm from "../components/MovieForm";
@@ -50,9 +51,8 @@ export default function EdicaoFilme() {
       <Navbar />
 
       <div className="editar-filme-content">
-        <h1 className="editar-filme-title">
-          Editar <span>Filme</span>
-        </h1>
+        <PageTitle>Editar <span>Filme</span></PageTitle>
+        
 
         <div className="editar-filme-grid">
 

@@ -75,8 +75,6 @@
     border-radius: 20px;
     padding: 40px;
     backdrop-filter: blur(14px);
-
-    /* E ADICIONADO AQUI */
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 

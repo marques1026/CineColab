@@ -1,30 +1,27 @@
 // src/services/auth.js
-import { loginUsuarioAPI, cadastrarUsuarioAPI, loginAdminAPI } from "../api";
+import { loginUsuarioAPI, cadastrarUsuarioAPI } from "../api"; 
 
 export async function loginUsuario({ email, senha }) {
   const resp = await loginUsuarioAPI({ email, senha });
-  if (resp.ok && resp.data && resp.data.token) {
-    localStorage.setItem("token", resp.data.token);
-    localStorage.setItem("usuario", JSON.stringify(resp.data.user || null));
-    return { ok: true, ...resp.data };
-  }
-  return { ok: false, status: resp.status, ...resp.data };
-}
+  
+  if (resp.ok && resp.data && resp.data.status === "sucesso") {
+    const usuarioData = {
+      nome: resp.data.nome,
+      email: email,
+      role: resp.data.role 
+    };
 
-export async function loginAdmin({ email, senha }) {
-  const resp = await loginAdminAPI({ email, senha });
-  if (resp.ok && resp.data && resp.data.token) {
-    localStorage.setItem("token", resp.data.token);
-    localStorage.setItem("admin", "true");
-    return { ok: true, ...resp.data };
+    localStorage.setItem("usuario", JSON.stringify(usuarioData));
+    return { ok: true, user: usuarioData };
   }
-  return { ok: false, status: resp.status, ...resp.data };
+  
+  return { ok: false, message: resp.data.message || "Erro ao logar" };
 }
 
 export async function cadastrarUsuario(dados) {
   const resp = await cadastrarUsuarioAPI(dados);
   if (resp.ok) return { ok: true, ...resp.data };
-  return { ok: false, status: resp.status, ...resp.data };
+  return { ok: false, message: resp.data.message || "Erro ao cadastrar" };
 }
 
 export function getUsuario() {
@@ -35,17 +32,7 @@ export function getUsuario() {
   }
 }
 
-export function getToken() {
-  return localStorage.getItem("token");
-}
-
-export function isAdmin() {
-  return localStorage.getItem("admin") === "true";
-}
-
 export function logout() {
-  localStorage.removeItem("token");
   localStorage.removeItem("usuario");
-  localStorage.removeItem("admin");
   window.location.href = "/login";
 }

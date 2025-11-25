@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 
 // Componentes
 import Button from "../components/Button";
-import PageTitle from "./TituloPagina";
+import PageTitle from "../components/TituloPagina";
 import InputField from "../components/InputField";
 
 export default function Login() {
@@ -19,26 +19,24 @@ export default function Login() {
 
  async function fazerLogin(e) {
   e.preventDefault();
+  setErro("");
 
   const result = await loginUsuario({ email, senha });
 
-  if (result.token) {
+  if (result.ok) {
     login(result.user);
     navigate("/home");
   } else {
-    setErro("Email ou senha incorretos.");
+    setErro(result.message || "Email ou senha incorretos.");
   }
 }
-
 
   return (
     <div className="login-container" style={{ "--bg": "url('/src/assets/img/Wallpaper-PerdidosNoEspaço.svg')" }}>
       <div className="login-card">
-        
         <PageTitle>Bem-<span>Vindo(a)!</span></PageTitle>
 
         <form className="login-form" onSubmit={fazerLogin}>
-          
           <InputField 
             label="Email:"
             type="email"

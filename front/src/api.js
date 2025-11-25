@@ -1,53 +1,63 @@
-// src/api.js
-const API_BASE_URL = ""; // usa proxy do vite; em produção coloque "http://localhost:8001" ou URL real
+const API_BASE_URL = "http://localhost:8000"; 
 
-// helper
-async function doFetch(path, options = {}) {
-  const resp = await fetch(`/api${path}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-  });
-  const data = await resp.json().catch(() => ({}));
-  return { ok: resp.ok, status: resp.status, data };
+function toFormData(data) {
+  const formData = new URLSearchParams();
+  for (const key in data) {
+    formData.append(key, data[key]);
+  }
+  return formData;
 }
+
+async function doFetch(path, options = {}) {
+  let body = options.body;
+  let headers = options.headers || {};
+
+  if (options.method === "POST" && body && typeof body === "object") {
+    body = toFormData(body);
+  }
+
+  try {
+    const resp = await fetch(`${API_BASE_URL}${path}`, {
+      ...options,
+      headers: headers,
+      body: body,
+    });
+    
+    const data = await resp.json().catch(() => ({}));
+    return { ok: resp.ok, status: resp.status, data };
+  } catch (error) {
+    console.error("Erro na requisição:", error);
+    return { ok: false, status: 500, data: { error: "Erro de conexão" } };
+  }
+}
+
+// === ROTAS ===
 
 // Cadastro
 export async function cadastrarUsuarioAPI(userData) {
-  return doFetch("/cadastro", {
+  return doFetch("/register", {
     method: "POST",
-    body: JSON.stringify(userData),
+    body: userData,
   });
 }
 
-// Login usuário (rota /api/login)
+// Login
 export async function loginUsuarioAPI(credentials) {
-  return doFetch("/login", {
+  return doFetch("/send_login", {
     method: "POST",
-    body: JSON.stringify(credentials),
+    body: {
+      email: credentials.email,
+      password: credentials.senha 
+    },
   });
 }
 
-// Login admin
-export async function loginAdminAPI(credentials) {
-  return doFetch("/login_admin", {
-    method: "POST",
-    body: JSON.stringify(credentials),
-  });
+// Buscar dados da Home
+export async function buscarDadosHomeAPI() {
+  return doFetch("/api/home", { method: "GET" });
 }
 
-// Filmes (listar)
-export async function listarFilmesAPI() {
-  return doFetch("/filmes", { method: "GET" });
-}
-
-// Adicionar filme (admin)
-export async function adicionarFilmeAPI(dados, token) {
-  return doFetch("/filmes/adicionar", {
-    method: "POST",
-    body: JSON.stringify(dados),
-    headers: { Authorization: `Bearer ${token || ""}` },
-  });
+// Detalhes do Filme
+export async function getFilmeDetalhesAPI(id) {
+  return doFetch(`/api/filme/${id}`, { method: "GET" });
 }

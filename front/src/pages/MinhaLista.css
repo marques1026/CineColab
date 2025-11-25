@@ -6,7 +6,7 @@
 }
 
 .content-wrapper {
-    flex-grow: 1; /* Faz o conteúdo ocupar o espaço entre Navbar e Footer */
+    flex-grow: 1;
     padding: 40px 60px;
     display: flex;
     flex-direction: column;
@@ -16,8 +16,8 @@
 /* Container Principal da Lista */
 .list-container {
     width: 100%;
-    max-width: 1200px; /* Limita a largura central do conteúdo */
-    background: rgba(255, 255, 255, 0.05); /* Fundo sutil do container da lista */
+    max-width: 1200px; 
+    background: rgba(255, 255, 255, 0.05); 
     backdrop-filter: blur(5px);
     border-radius: 16px;
     padding: 40px;
@@ -27,12 +27,11 @@
 /* Grid de Filmes */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Colunas flexíveis */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
     gap: 20px;
     justify-items: center;
 }
 
-/* Estilo do Card do Filme (MovieCard) */
 .movie-card {
     display: flex;
     flex-direction: column;
@@ -41,7 +40,7 @@
     padding: 10px;
     border-radius: 8px;
     width: 100%;
-    max-width: 160px; /* Largura máxima para cada card */
+    max-width: 160px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
 }

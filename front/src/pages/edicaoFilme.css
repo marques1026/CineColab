@@ -28,18 +28,6 @@ body, html {
   padding: 40px 40px 120px 40px;
 }
 
-/* ===== TÍTULO ===== */
-.editar-filme-title {
-  font-size: 38px;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-
-.editar-filme-title span {
-  background: linear-gradient(90deg, #b873ff, #d063ff);
-  -webkit-background-clip: text;
-  color: transparent;
-}
 
 /* ===== GRID ===== */
 .editar-filme-grid {

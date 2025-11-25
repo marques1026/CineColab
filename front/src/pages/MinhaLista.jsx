@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
-import TituloPagina from '../pages/TituloPagina'
+import TituloPagina from '../components/TituloPagina'
 
 
 const MovieCard = ({ title, imageUrl }) => {

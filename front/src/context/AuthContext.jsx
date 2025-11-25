@@ -6,14 +6,17 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
+  const [loadingAuth, setLoadingAuth] = useState(true);
 
   useEffect(() => {
     const u = getUsuario();
     if (u) setUsuario(u);
+    setLoadingAuth(false);
   }, []);
 
   function login(dadosUsuario) {
     setUsuario(dadosUsuario);
+    // O localStorage já é setado no auth.js, mas garante sincronia
     localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
   }
 
@@ -23,7 +26,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ usuario, login, logout }}>
+    <AuthContext.Provider value={{ usuario, login, logout, loadingAuth }}>
       {children}
     </AuthContext.Provider>
   );
