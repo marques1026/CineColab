@@ -1,7 +1,7 @@
 import React from "react";
-import InputField from "./InputField";
-import DuoInput from "./DuoInput";
-import Button from "./Button";
+import InputField from "./input/InputField";
+import DuoInput from "./input/DuoInput";
+import Button from "./button/Button";
 
 export default function MovieForm({
   modo = "edit",    

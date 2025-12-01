@@ -1,0 +1,110 @@
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url("../assets/img/WallpaperDefault.svg");
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.search-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  
+  flex: 1; 
+}
+
+/* ===== HEADER DE PESQUISA ===== */
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.search-title .highlight {
+  color: #a855f7; 
+}
+
+/* ===== GRID DE FILMES ===== */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  gap: 30px;
+}
+
+/* ===== CARD DE FILME ===== */
+.movie-card {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, rgba(0,0,0,0.2) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  border-color: #8B3CFF;
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.movie-card.highlighted {
+  border: 2px solid #06b6d4;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.movie-poster {
+  aspect-ratio: 2/3;
+  background: #1f2937;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.movie-card:hover .movie-poster img {
+  transform: scale(1.05);
+}
+
+.movie-info {
+  padding: 16px;
+  background: #15151bd9; 
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.movie-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.movie-info button {
+  width: 100%;
+  margin-top: auto;
+}

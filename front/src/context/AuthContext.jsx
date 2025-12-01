@@ -16,7 +16,6 @@ export function AuthProvider({ children }) {
 
   function login(dadosUsuario) {
     setUsuario(dadosUsuario);
-    // O localStorage já é setado no auth.js, mas garante sincronia
     localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
   }
 

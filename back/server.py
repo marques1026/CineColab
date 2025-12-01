@@ -10,8 +10,9 @@ try:
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="root",  # senha do banco de dados correspondente da maquina
+        password="senai",  # senha do banco de dados correspondente da maquina
         database="cinecolab"
+        use_pure=True            # <--- ADICIONE ESTA LINHA AQUI
     )
     print(" Conexão 'cinecolab' estabelecida.")
 except mysql.connector.Error as err:

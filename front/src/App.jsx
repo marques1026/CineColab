@@ -1,17 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Cadastro from "./pages/Cadastro.jsx";
-import Login from "./pages/Login.jsx";
-import EdicaoFilme from "./pages/EdicaoFilme.jsx";
+import Cadastro from "./pages/cadastro/Cadastro.jsx"
+import Login from "./pages/login/Login.jsx"
+import EdicaoFilme from "./pages/edicaoFilmes/EdicaoFilme.jsx"
 import "./global.css";
 import WallpaperManager from "./components/WallpaperManager";
-import CadastrarFilme from "./pages/CadastroFilme.jsx";
-import Home from "./pages/Home.jsx"
-import Perfil from "./pages/Perfil.jsx";
-import MovieDetails from "./pages/DetalheFilmes.jsx";
-import RequisicoesPage from "./pages/RequisicaoAdm.jsx";
-import MinhaLista from "./pages/MinhaLista.jsx";
-
+import Home from "./pages/home/Home.jsx"
+import Perfil from "./pages/perfil/Perfil.jsx"
+import MovieDetails from "./pages/detalheFilmes/DetalheFilmes.jsx";
+import RequisicoesPage from "./pages/requisicoes/RequisicaoAdm.jsx"
+import MinhaLista from "./pages/minhaLista/MinhaLista.jsx";
+import CadastrarFilme from "./pages/cadastroFilme/CadastroFilme.jsx";
+import PesquisaFilmes from "./pages/pesquisa/PesquisaFilmes.jsx"
+import FilmesAdicionados from "./pages/FilmesAdicionados/FilmesAdicionados.jsx";
 
 
 function App() {
@@ -24,17 +24,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/edicaofilmes" element={<EdicaoFilme />} />
         <Route path="/cadastrofilmes" element={<CadastrarFilme />} />
-        <Route path="/home" element={<Home />} /> {/* arrumar praticamente tudo  */}
+        <Route path="/home" element={<Home />} />
         <Route path="/perfil" element={<Perfil />} /> 
-        <Route path="/detalhefilmes" element={<MovieDetails />} /> {/* arrumar praticamente tudo  */}
-        <Route path="/requisicoesadm" element={<RequisicoesPage />} /> {/* arrumar posicionamento  */}
-        <Route path="/minhalista" element={<MinhaLista />} /> {/* arrumar praticamente tudo  */}
-        {/* pagina de pesquisar filmes  */}
-        {/* filmes ja adicionados  */}
-        {/* requisição de filme usuario  */}
-
-
-
+        <Route path="/detalhefilmes" element={<MovieDetails />} />
+        <Route path="/requisicoesadm" element={<RequisicoesPage />} />
+        <Route path="/minhalista" element={<MinhaLista />} /> 
+        <Route path="/pesquisafilmes" element={<PesquisaFilmes />} />
+        <Route path="/filmesadicionados" element={<FilmesAdicionados />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,245 @@
+.movie-details-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #0B0D13;
+  padding-bottom: 70px;
+  font-family: 'Inter', sans-serif;
+}
+
+.movie-banner {
+  width: 90%;
+  max-width: 1280px; 
+  margin: 30px auto 0;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 550px; 
+  background: url("../assets/img/WallpaperDefault.svg");
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.movie-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; 
+}
+
+.movie-banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(to top, #0B0D13 10%, rgba(11, 13, 19, 0.6) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+.movie-logo-hero {
+  width: 300px;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+.movie-banner-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+
+.btn-icon-only {
+  width: 48px !important;
+  height: 48px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 0 !important; 
+}
+
+.btn-icon-only:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.movie-content-grid {
+  width: 90%;
+  max-width: 1280px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+}
+
+.glass-card {
+  background: rgba(32, 33, 40, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+/* Descrição */
+.section-title {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.movie-description-text {
+  color: #B0B0B0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.movie-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-icon {
+  color: #8B3CFF;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.language-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lang-tag {
+  background: #1A1C25;
+  border: 1px solid #2A2C35;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+}
+
+.movie-cast-card {
+  grid-column: 1 / 3;
+}
+
+.cast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cast-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(32, 33, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav-btn:hover {
+  background: #8B3CFF;
+  border-color: #8B3CFF;
+}
+
+.cast-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #2A2C35 transparent;
+}
+
+.cast-list::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cast-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cast-list::-webkit-scrollbar-thumb {
+  background: #2A2C35;
+  border-radius: 3px;
+}
+
+.cast-item {
+  min-width: 120px;
+  height: 120px;
+  background: rgba(32, 33, 40, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.movie-bottom-buttons {
+  width: 90%;
+  max-width: 1280px;
+  margin: 20px auto 0;
+  display: flex;
+  gap: 16px;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 968px) {
+  .movie-content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .movie-cast-card {
+    grid-column: 1;
+  }
+  
+  .movie-banner {
+    height: 400px;
+  }
+}

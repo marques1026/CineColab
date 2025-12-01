@@ -1,0 +1,126 @@
+/* ---------- CONTAINER ---------- */
+.perfil-container {
+    min-height: 100vh;
+    background: url("../assets/img/WallpaperDefault.svg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}
+
+.perfil-content {
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 25px 0 80px 0;
+}
+
+/* ---------- TÍTULO ---------- */
+.perfil-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.perfil-title span {
+    background: linear-gradient(90deg, #b873ff, #d063ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* ---------- GRID GERAL ---------- */
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+}
+
+/* ---------- CARD ESQUERDO ---------- */
+.perfil-left-card {
+    background: rgba(20, 20, 30, 0.45);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.perfil-name {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* CÍRCULO DO PERFIL */
+.perfil-photo-circle {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+
+    border-radius: 50%;
+    border: 10px solid transparent;
+    background: linear-gradient(45deg, #b873ff, #d063ff) border-box;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* ---------- CARD DIREITO ---------- */
+.profile-info-card {
+    background: rgba(20, 20, 30, 0.45);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.info-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* GRID 2 COLUNAS */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 40px;
+}
+
+.info-label {
+    display: block;
+    font-size: 14px;
+    color: #b6b6b6;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+}
+
+/* LINHAS */
+.info-item {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+
+.perfil-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 80px;
+  margin-top: 45px;
+  margin-bottom: 60px;
+}
+
+/* bloco da direita */
+.perfil-buttons-right {
+  display: flex;
+  gap: 20px;
+}
