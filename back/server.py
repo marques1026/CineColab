@@ -12,7 +12,7 @@ try:
         user="root",
         password="senai",  # senha do banco de dados correspondente da maquina
         database="cinecolab"
-        use_pure=True            # <--- ADICIONE ESTA LINHA AQUI
+        use_pure=True          
     )
     print(" Conexão 'cinecolab' estabelecida.")
 except mysql.connector.Error as err:
@@ -33,7 +33,6 @@ class MyHandle(SimpleHTTPRequestHandler):
         self.send_cors_headers()
         self.end_headers()
 
-    # --- Funções Auxiliares de BD ---
     
     def parse_name(self, full_name):
         parts = full_name.strip().split(' ', 1)
@@ -67,7 +66,6 @@ class MyHandle(SimpleHTTPRequestHandler):
             return cursor.lastrowid
 
     def _atualizar_relacionamentos_filme(self, cursor, id_filme, data):
-        # Limpa relacionamentos antigos (Usando SUAS tabelas de junção)
         cursor.execute("DELETE FROM Filme_genero WHERE id_filme = %s", (id_filme,))
         cursor.execute("DELETE FROM filme_linguagem WHERE id_filme = %s", (id_filme,))
         cursor.execute("DELETE FROM filme_produtora WHERE id_filme = %s", (id_filme,))
@@ -90,12 +88,10 @@ class MyHandle(SimpleHTTPRequestHandler):
                 id_ator = self.get_or_create_id(cursor, 'Ator', ator_nome)
                 cursor.execute("INSERT INTO Filme_ator (id_filme, id_ator, personagem) VALUES (%s, %s, 'Desconhecido')", (id_filme, id_ator))
     
-    # --- Verificador de Login  ---
     def accont_user(self, login, password):
         if not mydb.is_connected(): mydb.reconnect()
         cursor = mydb.cursor(dictionary=True)
         
-        # Consulta na tabela 'usuarios'
         sql = "SELECT * FROM usuarios WHERE email = %s AND senha = %s"
         cursor.execute(sql, (login, password))
         user = cursor.fetchone()
@@ -445,9 +441,7 @@ class MyHandle(SimpleHTTPRequestHandler):
              except Exception as e:
                 send_json_response(500, {"status": "erro", "message": str(e)})
 
-                # Adicione este bloco dentro do do_POST no server.py
 
-        # Rota POST: /register (Criar Conta de Usuário)
         elif path == "/register":
             try:
                 content_length = int(self.headers['Content-Length'])
