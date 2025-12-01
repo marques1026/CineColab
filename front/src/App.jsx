@@ -12,7 +12,7 @@ import MinhaLista from "./pages/minhaLista/MinhaLista.jsx";
 import CadastrarFilme from "./pages/cadastroFilme/CadastroFilme.jsx";
 import PesquisaFilmes from "./pages/pesquisa/PesquisaFilmes.jsx"
 import FilmesAdicionados from "./pages/FilmesAdicionados/FilmesAdicionados.jsx";
-
+import MinhasRequisicoes from "./pages/requisicoesFilmes/RequisicoesFilmes.jsx";
 
 function App() {
   return (
@@ -31,6 +31,9 @@ function App() {
         <Route path="/minhalista" element={<MinhaLista />} /> 
         <Route path="/pesquisafilmes" element={<PesquisaFilmes />} />
         <Route path="/filmesadicionados" element={<FilmesAdicionados />} />
+        <Route path="/minhasrequisicoes" element={<MinhasRequisicoes />} />
+
+
       </Routes>
     </BrowserRouter>
   );

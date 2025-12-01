@@ -2,11 +2,9 @@
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   gap: 0px; 
-
   font-family: "Inter", sans-serif;
   color: white;
 }
@@ -15,7 +13,6 @@
 .historico-header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
   padding: 12px 5px;
   font-size: 15px;
   font-weight: 600;

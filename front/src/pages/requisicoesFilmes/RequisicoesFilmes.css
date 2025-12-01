@@ -1,0 +1,167 @@
+.requisicoes-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: url("../assets/img/WallpaperDefault.svg");
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+.req-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.req-glass-container {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
+}
+
+.req-header {
+  margin-bottom: 30px;
+}
+
+.req-titulo {
+  font-size: 28px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.req-destaque {
+  color: #a855f7; 
+}
+
+.req-divisor {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.req-card {
+  display: flex;
+  background: rgba(30, 30, 35, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+  height: 180px; 
+}
+
+.req-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.req-poster {
+  width: 120px; 
+  flex-shrink: 0;
+  position: relative;
+}
+
+.req-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.req-info {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.req-movie-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.req-year {
+  color: #888;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.req-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.req-label {
+  font-size: 11px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.req-data-value {
+  color: #ddd;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.req-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.tipo-edicao {
+  background: #A804F2;
+  color: white;
+  box-shadow: 0 0 8px rgba(168, 4, 242, 0.4);
+}
+
+.tipo-adicao {
+  background: #6A00FF;
+  color: white;
+}
+
+.status-pendente {
+  background: rgba(100, 50, 150, 0.3);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.status-recusado {
+  background: rgba(80, 20, 30, 0.5);
+  color: #ff8888;
+  border: 1px solid rgba(255, 50, 50, 0.2);
+}
+
+.req-bottom-buttons {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
